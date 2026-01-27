@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Justice Perspective | Criminal Justice Research</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* --- Reset & Global --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Merriweather', serif;
+      color: #eaeaea;
+      background: linear-gradient(135deg, #2c2c2c, #3f3a3f, #d8d2c6);
+      min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* --- Smooth Glow Animation --- */
+    @keyframes slowGlow {
+      0% {text-shadow: 0 0 6px rgba(255,255,255,0.1), 0 0 15px rgba(255,255,255,0.05);}
+      50% {text-shadow: 0 0 12px rgba(255,255,255,0.2), 0 0 30px rgba(255,255,255,0.1);}
+      100% {text-shadow: 0 0 6px rgba(255,255,255,0.1), 0 0 15px rgba(255,255,255,0.05);}
+    }
+
+    /* --- Navigation --- */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 3rem;
+      position: sticky;
+      top: 0;
+      background: rgba(44,44,44,0.75);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(255,255,255,0.1);
+      z-index: 100;
+    }
+
+    nav h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #d8d2c6, #cfcbd0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: slowGlow 6s infinite;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      color: #eaeaea;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background: linear-gradient(90deg, #d8d2c6, #cfcbd0);
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem 3rem;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(120deg, #d8d2c6, #cdc6d1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: slowGlow 8s infinite;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.2rem;
+      color: #e1dbd5;
+    }
+
+    /* --- Articles Section --- */
+    .articles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 4rem 3rem;
+    }
+
+    .article-box {
+      background: rgba(255,255,255,0.05);
+      border-radius: 15px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 25px rgba(255,255,255,0.05);
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .article-box:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(255,255,255,0.1);
+    }
+
+    .article-box h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(120deg, #d8d2c6, #cdc6d1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: slowGlow 8s infinite;
+    }
+
+    .article-box p {
+      color: #ddd8d2;
+      margin-bottom: 1rem;
+    }
+
+    .read-more {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #d8d2c6, #cdc6d1);
+      color: #2c2c2c;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255,255,255,0.1);
+    }
+
+    .read-more:hover {
+      box-shadow: 0 6px 25px rgba(255,255,255,0.15);
+      transform: translateY(-2px);
+    }
+
+    /* --- Footer --- */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: rgba(44,44,44,0.7);
+      box-shadow: 0 -4px 20px rgba(255,255,255,0.05);
+      color: #ccc;
+    }
+
+    /* --- Scroll Reveal --- */
+    .article-box {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .article-box.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <h1>Justice Perspective</h1>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Articles</a></li>
+      <li><a href="#">Research</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h2>Criminal Justice Research & Analytics</h2>
+    <p>In-depth analysis, case studies, and modern perspectives for legal professionals seeking clarity and understanding in the justice system.</p>
+  </section>
+
+  <!-- Articles -->
+  <section class="articles">
+    <div class="article-box">
+      <h3>The Evolution of Criminal Law</h3>
+      <p>Explore the history of criminal law and pivotal cases that shaped modern justice practices.</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+    <div class="article-box">
+      <h3>Legal Precedents and Policy</h3>
+      <p>Analyzing landmark court decisions and their lasting impact on legal frameworks and societal norms.</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+    <div class="article-box">
+      <h3>Modern Criminal Justice Reform</h3>
+      <p>Insights into reforms improving fairness, accountability, and transparency in the justice system.</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+    <div class="article-box">
+      <h3>Technology and Law</h3>
+      <p>How AI, analytics, and tech innovations are influencing law enforcement, legal research, and judicial practices.</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Justice Perspective | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // Scroll reveal for articles
+    const boxes = document.querySelectorAll('.article-box');
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      boxes.forEach(box => {
+        const boxTop = box.getBoundingClientRect().top;
+        if(boxTop < triggerBottom) {
+          box.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+  </script>
+
+</body>
+</html>
